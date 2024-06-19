@@ -1,4 +1,5 @@
 BASICS OF REACT
+
 WEEK 1
 . React Roadmap & Create react projects
 . Understanding the react flow & Structure
@@ -25,6 +26,7 @@ WEEK 2
 
 . React Context - Context API & Local Storage
 . React Project - Dark mode & Light mode with Context API
+
 
 
 ADVANCED REACT
