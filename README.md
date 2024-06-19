@@ -1,6 +1,6 @@
 BASICS OF REACT
-
 WEEK 1
+---------------------------------------------------  
 . React Roadmap & Create react projects
 . Understanding the react flow & Structure
 
@@ -15,6 +15,7 @@ WEEK 1
 
 
 WEEK 2
+-------------------------------------------------------- 
 . intro to state - UseState & Conditional Rendering [ background changer - React Project]
 . useEffect, useRef, UseCallBack
 
@@ -28,9 +29,9 @@ WEEK 2
 . React Project - Dark mode & Light mode with Context API
 
 
-
 ADVANCED REACT
 WEEK 3
+-------------------------------------------------------------
 . Data Handling(Consuming APIs - Axios)
 . State Management with Context API
 
