@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
   todo: todoReducer,
   [loginAPI.reducerPath]: loginAPI.reducer,
   [usersAPI.reducerPath]: usersAPI.reducer,
+  [todoApi.reducerPath]: todoApi.reducer
 });
 
 //apply pesist Reducer to only counter reducer
@@ -25,7 +26,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(loginAPI.middleware).concat(usersAPI.middleware),
+    getDefaultMiddleware().concat(loginAPI.middleware).concat(usersAPI.middleware).concat(todoApi.middleware),
 });
 
 export const persistedStore = persistStore(store);

@@ -2,7 +2,6 @@
 import Navbar from "../components/Navbar"
 import Container from "../components/Container"
 import Footer from "../components/Footer"
-import Counter from "../features/counter/Counter"
 import Login from "../features/login/Login"
 const Home = () => {
   return (

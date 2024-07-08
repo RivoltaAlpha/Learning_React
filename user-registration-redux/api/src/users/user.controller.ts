@@ -1,6 +1,6 @@
 import { Context } from "hono";
 import { usersService, getUserService, createUserService, updateUserService, deleteUserService } from "./user.service";
-import bycrpt from 'bcrypt';
+
 export const listUsers = async (c: Context) => {
     try {
         //limit the number of users to be returned

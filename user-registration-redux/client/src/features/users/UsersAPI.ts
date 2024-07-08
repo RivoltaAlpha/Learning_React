@@ -1,17 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {TUser } from '../../types/types'
 
-interface TUser {
-    id: number;
-    fullname: string;
-    email: string;
-    phone: string;
-    address: string;
-}
 
 // Define the API slice
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
+    tagTypes: ['getUsers', 'createUser', 'updateUser', 'deleteUser'],
     endpoints: (builder) => ({
         getUsers: builder.query<TUser[], void> ({ query: () => 'users',
             providesTags: ['getUsers'],
@@ -46,4 +41,4 @@ export const usersAPI = createApi({
 });
 
 // Export the auto-generated hooks
-export const { useGetUsersQuery, useCreateUserMutation, useUpdateUserMutation, useDeleteUserMutation } = usersAPI;
+ export default usersAPI;

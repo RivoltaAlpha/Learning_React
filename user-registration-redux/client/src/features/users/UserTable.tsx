@@ -1,15 +1,14 @@
-import { useGetUsersQuery, } from "./UsersAPI"
-import { useDeleteUserMutation } from './UsersAPI'
+import usersAPI from "./UsersAPI"
 import { Toaster, toast } from 'sonner'
 function UserTable() {
 
-    const { data: usersData, error, isLoading, isError } = useGetUsersQuery({ pollingInterval: 3000, skipPollingIfUnfocused: true, })
+    const { data: usersData, error, isLoading, isError } = usersAPI.useGetUsersQuery()
 
-    const [deleteUser, { isLoading: isDeleting, data: deletemsg }] = useDeleteUserMutation()
+    const [deleteUser, {  data: deletemsg }] = usersAPI.useDeleteUserMutation()
 
     const handleDelete = async (id: number) => {
         await deleteUser(id)
-        toast.success(deletemsg.msg)
+        toast.success(deletemsg?.success)
 
     }
     console.log(deletemsg)
@@ -24,7 +23,7 @@ function UserTable() {
                         warning: 'text-yellow-400',
                         info: 'bg-blue-400',
                     },
-                }} />
+                }}/>
             <div className="overflow-x-auto text-base-content bg-gray-800 rounded-lg p-4">
                 <h1 className='text-xl my-4'>Users Data</h1>
 
@@ -43,9 +42,11 @@ function UserTable() {
                         {
                             isLoading ? (<tr><td colSpan={6}>Loading...</td></tr>) : (
                                 isError ? (
-                                    error.data.length == 0 && (
+                                    error && 'status' in error && error.status === 404 ? (
                                         <tr><td colSpan={6}>No Data</td></tr>
                                     )
+
+                                    : <tr><td colSpan={6}>Error</td></tr>
                                 ) : (
 
                                     usersData && usersData.map((user, index) => (
